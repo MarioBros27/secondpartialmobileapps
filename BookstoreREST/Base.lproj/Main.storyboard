@@ -83,7 +83,13 @@
                         <viewLayoutGuide key="safeArea" id="VUw-jc-0yf"/>
                     </view>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" title="Detail" id="mOI-FS-AaM"/>
+                    <navigationItem key="navigationItem" title="Detail" id="mOI-FS-AaM">
+                        <barButtonItem key="rightBarButtonItem" systemItem="trash" id="LVC-qS-klC">
+                            <connections>
+                                <action selector="deleteBook:" destination="JEX-9P-axG" id="mEC-9L-1HN"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="authorLabel" destination="0Na-mT-Ly6" id="Ypd-ff-Pfq"/>
                         <outlet property="descriptionLabel" destination="1Kn-yz-liS" id="svO-e2-Duo"/>
@@ -144,7 +150,13 @@
                             <outlet property="delegate" destination="7bK-jq-Zjz" id="RA6-mI-bju"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Master" id="Zdf-7t-Un8"/>
+                    <navigationItem key="navigationItem" title="Master" id="Zdf-7t-Un8">
+                        <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="5A1-28-eqc">
+                            <connections>
+                                <action selector="refreshPressed:" destination="7bK-jq-Zjz" id="UyC-zy-mBN"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rux-fX-hf1" sceneMemberID="firstResponder"/>
             </objects>

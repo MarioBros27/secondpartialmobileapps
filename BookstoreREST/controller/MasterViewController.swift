@@ -8,7 +8,23 @@
 
 import UIKit
 
-class MasterViewController: UITableViewController{
+class MasterViewController: UITableViewController, BookDelegate{
+    func newBook(_ controller: AnyObject, newBook: Book) {
+        //Not implemented
+    }
+    
+    func editBook(_ controller: AnyObject, editBook: Book) {
+        //Not implemented
+    }
+    
+    func deleteBook(_ controller: AnyObject) {
+        if let row = tableView.indexPathForSelectedRow?.row{
+            bookList.remove(at: row)
+        }
+        tableView.reloadData()
+        navigationController?.popToRootViewController(animated: true)
+    }
+    
    
 
     var detailViewController: DetailViewController? = nil
@@ -26,6 +42,9 @@ class MasterViewController: UITableViewController{
         refresh()
     }
 
+    @IBAction func refreshPressed(_ sender: UIBarButtonItem) {
+        refresh()
+    }
     private func refresh() {
         service.getAll() { [unowned self] (bookList) in
             self.bookList = bookList
@@ -51,7 +70,7 @@ class MasterViewController: UITableViewController{
                 controller.navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem
                 controller.navigationItem.leftItemsSupplementBackButton = true
                 detailViewController = controller
-                
+                controller.delegate = self
             }
         }
     }

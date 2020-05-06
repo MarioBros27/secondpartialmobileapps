@@ -40,6 +40,17 @@ class DetailViewController: UIViewController {
         }
     }
 
-
+    @IBAction func deleteBook(_ sender: UIBarButtonItem) {
+        let service = BookService()
+        
+        
+        
+        if let detail = detailItem{
+            print("book to delete \(detail.bookId)")
+            service.deleteBook(id: detailItem!.bookId)
+        }
+        delegate?.deleteBook(self)
+    }
+    
 }
 
