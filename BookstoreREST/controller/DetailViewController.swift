@@ -10,15 +10,21 @@ import UIKit
 
 class DetailViewController: UIViewController {
 
-    @IBOutlet weak var detailDescriptionLabel: UILabel!
-
-
+    
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var authorLabel: UILabel!
+    
+    
+    @IBOutlet weak var descriptionLabel: UITextView!
+    var delegate : BookDelegate?
+    
+    
     func configureView() {
         // Update the user interface for the detail item.
         if let detail = detailItem {
-            if let label = detailDescriptionLabel {
-                label.text = detail.description
-            }
+            titleLabel.text = detail.title
+            authorLabel.text = detail.author
+            descriptionLabel.text = detail.description
         }
     }
 
@@ -30,7 +36,7 @@ class DetailViewController: UIViewController {
 
     var detailItem: Book? {
         didSet {
-            // Update the view.
+            //delegate?.newBook(self, newBook: detailItem!)
         }
     }
 

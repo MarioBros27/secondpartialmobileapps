@@ -8,7 +8,8 @@
 
 import UIKit
 
-class MasterViewController: UITableViewController {
+class MasterViewController: UITableViewController{
+   
 
     var detailViewController: DetailViewController? = nil
     let service = BookService()
@@ -50,6 +51,7 @@ class MasterViewController: UITableViewController {
                 controller.navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem
                 controller.navigationItem.leftItemsSupplementBackButton = true
                 detailViewController = controller
+                
             }
         }
     }
