@@ -71,6 +71,11 @@ class MasterViewController: UITableViewController, BookDelegate{
                 controller.navigationItem.leftItemsSupplementBackButton = true
                 detailViewController = controller
                 controller.delegate = self
+                DispatchQueue.main.async {
+                    controller.bookExists(id: book.bookId)
+                    print("calling")
+                }
+                
             }
         }
     }

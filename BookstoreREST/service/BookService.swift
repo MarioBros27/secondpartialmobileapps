@@ -111,6 +111,7 @@ class BookService : NSObject {
     func getData(from url: URL, completion: @escaping (Data?, URLResponse?, Error?) -> ()){
         
     }
+    
     func deleteBook(id: Int) {
         guard let url = URL(string: "https://booksappsample.herokuapp.com/books/\(id)") else {
             print("Error: cannot create URL")
