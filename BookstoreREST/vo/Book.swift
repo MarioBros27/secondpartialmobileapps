@@ -13,13 +13,15 @@ class Book {
     var title: String = ""
     var author: String = ""
     var description: String = ""
-    
+    var image: String = ""
     init() {}
     
-    init(_ bookId : Int, _ title : String, _ author : String, _ description : String) {
+    init(_ bookId : Int, _ title : String, _ author : String, _ description : String, _ image : String) {
         self.bookId = bookId
         self.author = author
         self.title = title
         self.description = description
+        self.image = image
     }
+    
 }

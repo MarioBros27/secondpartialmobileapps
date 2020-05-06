@@ -17,6 +17,7 @@ class DetailViewController: UIViewController {
     
     @IBOutlet weak var descriptionLabel: UITextView!
     var delegate : BookDelegate?
+    @IBOutlet weak var imageView: UIImageView!
     
     
     func configureView() {
@@ -25,6 +26,9 @@ class DetailViewController: UIViewController {
             titleLabel.text = detail.title
             authorLabel.text = detail.author
             descriptionLabel.text = detail.description
+            let unencodedData = Data(base64Encoded: detail.image)!
+            let image = UIImage(data: unencodedData)
+            imageView.image = image
         }
     }
 

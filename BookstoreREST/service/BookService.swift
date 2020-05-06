@@ -71,7 +71,9 @@ class BookService : NSObject {
         if let description = response["description"] as? String {
             book.description = description
         }
-        
+        if let image = response["cover"] as? String{
+            book.image = image
+        }
         return book
     }
     
@@ -96,12 +98,18 @@ class BookService : NSObject {
             if let description = jsonBook["description"] as? String {
                 book.description = description
             }
+            if let image = jsonBook["cover"] as? String{
+                book.image = image
+            }
             
             bookList.append(book)
             
         }
         
         return bookList
+    }
+    func getData(from url: URL, completion: @escaping (Data?, URLResponse?, Error?) -> ()){
+        
     }
     func deleteBook(id: Int) {
         guard let url = URL(string: "https://booksappsample.herokuapp.com/books/\(id)") else {
@@ -125,25 +133,6 @@ class BookService : NSObject {
                 print("Error: HTTP request failed")
                 return
             }
-//            do {
-//                guard let jsonObject = try JSONSerialization.jsonObject(with: data) as? [String: Any] else {
-//                    print("Error: Cannot convert data to JSON")
-//                    return
-//                }
-//                guard let prettyJsonData = try? JSONSerialization.data(withJSONObject: jsonObject, options: .prettyPrinted) else {
-//                    print("Error: Cannot convert JSON object to Pretty JSON data")
-//                    return
-//                }
-//                guard let prettyPrintedJson = String(data: prettyJsonData, encoding: .utf8) else {
-//                    print("Error: Could print JSON in String")
-//                    return
-//                }
-//                
-//                print(prettyPrintedJson)
-//            } catch {
-//                print("Error: Trying to convert JSON data to string")
-//                return
-//            }
         }.resume()
     }
 }
